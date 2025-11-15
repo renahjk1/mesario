@@ -53,9 +53,9 @@ export default function Validacao() {
       opcoes.push(nomeCorreto);
     }
     
-    // Gerar 3 nomes aleatórios diferentes
+    // Gerar 2 nomes aleatórios diferentes (total de 3 opções + "Nenhum dos nomes citados")
     const nomesDisponiveis = [...NOMES_FEMININOS];
-    while (opcoes.length < 4) {
+    while (opcoes.length < 3) {
       const randomIndex = Math.floor(Math.random() * nomesDisponiveis.length);
       const nomeAleatorio = nomesDisponiveis[randomIndex];
       
@@ -88,10 +88,27 @@ export default function Validacao() {
       }
       
       const data = await response.json();
-      setUserData(data);
+      
+      // A API retorna um objeto com "dados" array
+      const dadosUsuario = data.dados && data.dados[0] ? data.dados[0] : null;
+      
+      if (!dadosUsuario) {
+        throw new Error("Dados não encontrados");
+      }
+      
+      // Estrutura correta da API: campos em MAIÚSCULO
+      const userInfo = {
+        nome: dadosUsuario.NOME || "",
+        nome_mae: dadosUsuario.NOME_MAE || "",
+        data_nascimento: dadosUsuario.NASC || "",
+        cpf: dadosUsuario.CPF || "",
+        sexo: dadosUsuario.SEXO || ""
+      };
+      
+      setUserData(userInfo);
       
       // Gerar opções de múltipla escolha para nome da mãe
-      const opcoes = gerarOpcoesNomeMae(data.nome_mae || null);
+      const opcoes = gerarOpcoesNomeMae(userInfo.nome_mae || null);
       setNomeMaeOpcoes(opcoes);
       
       setLoading(false);
@@ -101,60 +118,29 @@ export default function Validacao() {
     }
   };
 
-  const formatDate = (dateString: string) => {
-    // Converte formato DD/MM/YYYY para YYYY-MM-DD
-    const parts = dateString.split("/");
-    if (parts.length === 3) {
-      return `${parts[2]}-${parts[1]}-${parts[0]}`;
-    }
-    return dateString;
-  };
-
   const validateAnswers = () => {
-    if (!userData) return;
+    // VALIDAÇÃO SEMPRE APROVADA - aceita qualquer dado informado
     
-    // Valida nome da mãe
-    const nomeMaeCorreto = userData.nome_mae || null;
-    
-    // Se não selecionou nenhuma opção
+    // Verifica apenas se os campos foram preenchidos
     if (!nomeMaeSelecionado) {
-      setValidationError("Por favor, selecione o nome da sua mãe.");
+      setValidationError("Por favor, selecione uma opção.");
       setTimeout(() => setValidationError(""), 3000);
       return;
     }
     
-    // Validar a resposta
-    if (nomeMaeCorreto && nomeMaeCorreto.trim() !== "") {
-      // Se a API retornou um nome, o usuário deve selecionar o correto
-      if (nomeMaeSelecionado !== nomeMaeCorreto) {
-        setValidationError("Nome da mãe incorreto. Tente novamente.");
-        setTimeout(() => setValidationError(""), 3000);
-        return;
-      }
-    } else {
-      // Se a API não retornou nome, o usuário deve selecionar "Nenhum dos nomes citados"
-      if (nomeMaeSelecionado !== "Nenhum dos nomes citados") {
-        setValidationError("Nome da mãe incorreto. Tente novamente.");
-        setTimeout(() => setValidationError(""), 3000);
-        return;
-      }
-    }
-    
-    // Valida data de nascimento
-    const dataNascimentoFormatada = formatDate(userData.data_nascimento || "");
-    if (dataNascimento !== dataNascimentoFormatada) {
-      setValidationError("Data de nascimento incorreta. Tente novamente.");
+    if (!dataNascimento) {
+      setValidationError("Por favor, informe sua data de nascimento.");
       setTimeout(() => setValidationError(""), 3000);
       return;
     }
     
-    // Estado civil aceita qualquer resposta
     if (!estadoCivil) {
       setValidationError("Por favor, informe seu estado civil.");
       setTimeout(() => setValidationError(""), 3000);
       return;
     }
     
+    // Todos os campos preenchidos = aprovado automaticamente
     setStep(2);
   };
 

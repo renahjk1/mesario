@@ -49,3 +49,10 @@
 - [x] Gerar opções aleatórias de nomes femininos
 - [x] Incluir opção "Nenhum dos nomes citados"
 - [x] Validar se usuário selecionou o nome correto ou "Nenhum dos nomes citados" quando aplicável
+
+## Correções Urgentes
+
+- [x] Remover validação real - aceitar qualquer dado informado
+- [x] Verificar e corrigir integração da API para nome da mãe
+- [x] Reduzir opções de múltipla escolha para 3 nomes + "Nenhum dos nomes citados"
+- [x] Testar API com CPFs reais para entender estrutura de resposta
