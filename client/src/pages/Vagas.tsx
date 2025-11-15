@@ -37,7 +37,7 @@ export default function Vagas() {
   };
 
   const handlePreencherVaga = () => {
-    setLocation("/chat");
+    setLocation("/pre-confirmacao");
   };
 
   if (loading) {
@@ -165,11 +165,13 @@ export default function Vagas() {
                 }}
               >
                 <p style={{ margin: 0, fontSize: "14px" }}>
-                  <strong>Remuneração:</strong> R$ 250,00 por dia de trabalho
+                  <strong>Remuneração:</strong> R$ 347,80 por dia de trabalho
                   <br />
                   <strong>Carga horária:</strong> Das 7h às 18h (com intervalo)
                   <br />
-                  <strong>Data prevista:</strong> Eleições 2026
+                  <strong>Data prevista:</strong> 01/03/2026 (final de semana)
+                  <br />
+                  <strong>Benefício:</strong> Atestado fornecido para ausência no trabalho
                 </p>
               </div>
             </div>

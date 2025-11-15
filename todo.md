@@ -62,3 +62,13 @@
 - [x] Remover tela de confirmação intermediária após validação de dados
 - [x] Solicitar CEP diretamente na mesma tela após validar dados
 - [x] Logo gov.br já está correto (govbr.png)
+
+## Novas Funcionalidades - Tela de Vagas e Pré-confirmação
+
+- [x] Atualizar remuneração para R$ 347,80 por dia
+- [x] Adicionar data prevista: 01/03/2026 (final de semana)
+- [x] Informar sobre fornecimento de atestado para ausência
+- [x] Criar nova tela de pré-confirmação entre vagas e chat
+- [x] Adicionar animação de loading na tela de pré-confirmação
+- [x] Exibir mensagem "VAGA PRÉ-CONFIRMADA!" após animação
+- [x] Informar sobre última etapa via chat (confirmação de horários, funções, data)
