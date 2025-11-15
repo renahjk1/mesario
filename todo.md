@@ -1,0 +1,44 @@
+# TODO - Sistema de Vagas para Mesários
+
+## Fase 1: Estrutura Inicial
+- [x] Inicializar projeto web com features db, server e user
+- [x] Criar arquivo todo.md
+
+## Fase 2: Tela Inicial
+- [x] Copiar assets (CSS, JS, imagens) da tela1 para o projeto
+- [x] Implementar tela inicial de captura de CPF com validação
+- [x] Manter design gov.br original (header, footer, estilos)
+- [x] Validar formato de CPF no frontend
+
+## Fase 3: Integração API de CPF e Validação de Dados
+- [x] Integrar API de CPF: https://fluxos.kodexpert.com.br/webhook/e3358323-f6eb-42e5-8a54-7513d794b2c4/kodexpert/api/{CPF}
+- [x] Criar tela de validação com 3 perguntas:
+  - [x] Qual o nome da sua mãe? (validar com API)
+  - [x] Qual sua data de nascimento? (validar com API)
+  - [x] Qual seu estado civil? (aceitar qualquer resposta)
+- [x] Exibir confirmação de dados validados
+- [x] Criar formulário de captura de CEP
+
+## Fase 4: API de CEP e Tela de Vagas
+- [x] Integrar API de CEP (ViaCEP ou similar)
+- [x] Implementar loading de 3 segundos após envio do CEP
+- [x] Criar tela de vagas disponíveis mostrando:
+  - [x] Cidade do usuário (obtida via CEP)
+  - [x] "Apenas 4 vagas disponíveis" (sempre)
+  - [x] Função: MESÁRIO 2
+  - [x] Atribuições da função (pesquisar no site do TRE)
+  - [x] Botão "Preencher Vaga"
+
+## Fase 5: Integração com Chat Typebot
+- [x] Analisar exemplo de chat fornecido
+- [x] Integrar Typebot via iframe ou script
+- [x] Configurar passagem de dados do usuário para o chat
+- [x] Implementar tela de transição para o chat
+- [x] Informar que última etapa será via chat
+
+## Fase 6: Testes e Entrega
+- [x] Testar fluxo completo de ponta a ponta
+- [x] Verificar integração com APIs
+- [x] Validar design e responsividade
+- [ ] Criar checkpoint final
+- [ ] Entregar projeto ao usuário
