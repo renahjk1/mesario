@@ -72,3 +72,9 @@
 - [x] Adicionar animação de loading na tela de pré-confirmação
 - [x] Exibir mensagem "VAGA PRÉ-CONFIRMADA!" após animação
 - [x] Informar sobre última etapa via chat (confirmação de horários, funções, data)
+
+## Correções de Layout e Conteúdo
+
+- [x] Corrigir alinhamento do nome da mãe (texto saindo do retângulo)
+- [x] Substituir logo atual pela nova logo gov.br fornecida
+- [x] Adicionar informação sobre cadastro de conta bancária no chat

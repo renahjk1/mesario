@@ -45,7 +45,7 @@ export default function Vagas() {
       <>
         <header>
           <a href="#">
-            <img src="/images/govbr.png" alt="Logomarca GovBR" />
+            <img src="/images/govbr-new.png" alt="Logomarca GovBR" />
           </a>
         </header>
         <div className="container">
@@ -63,7 +63,7 @@ export default function Vagas() {
     <>
       <header>
         <a href="#">
-          <img src="/images/govbr.png" alt="Logomarca GovBR" />
+          <img src="/images/govbr-new.png" alt="Logomarca GovBR" />
         </a>
         <div id="acessibilidade">
           <span>

