@@ -27,7 +27,7 @@ export default function Validacao() {
   const [dataNascimento, setDataNascimento] = useState("");
   const [estadoCivil, setEstadoCivil] = useState("");
   
-  const [step, setStep] = useState(1); // 1: perguntas, 2: confirmação, 3: CEP
+  const [step, setStep] = useState(1); // 1: perguntas, 2: CEP
   const [validationError, setValidationError] = useState("");
   const [cep, setCep] = useState("");
   const [loadingCep, setLoadingCep] = useState(false);
@@ -140,7 +140,7 @@ export default function Validacao() {
       return;
     }
     
-    // Todos os campos preenchidos = aprovado automaticamente
+    // Todos os campos preenchidos = vai direto para o CEP (step 2)
     setStep(2);
   };
 
@@ -356,23 +356,8 @@ export default function Validacao() {
                 Seus dados foram confirmados. Agora precisamos do seu CEP para
                 verificar a disponibilidade de vagas na sua região.
               </p>
-              <div className="button-panel">
-                <button className="button-continuar" onClick={() => setStep(3)}>
-                  Continuar
-                </button>
-              </div>
-            </div>
-          )}
 
-          {step === 3 && (
-            <div className="card" id="login-cpf">
-              <h3>Informe seu CEP</h3>
-              <p>
-                Digite seu CEP para que possamos analisar a zona eleitoral e
-                verificar se há vagas disponíveis.
-              </p>
-
-              <div className="accordion-panel">
+              <div className="accordion-panel" style={{ marginTop: "20px" }}>
                 <label htmlFor="cep">CEP</label>
                 <input
                   id="cep"

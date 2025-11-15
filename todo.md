@@ -56,3 +56,9 @@
 - [x] Verificar e corrigir integração da API para nome da mãe
 - [x] Reduzir opções de múltipla escolha para 3 nomes + "Nenhum dos nomes citados"
 - [x] Testar API com CPFs reais para entender estrutura de resposta
+
+## Melhorias de UX
+
+- [x] Remover tela de confirmação intermediária após validação de dados
+- [x] Solicitar CEP diretamente na mesma tela após validar dados
+- [x] Logo gov.br já está correto (govbr.png)
