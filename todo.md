@@ -40,5 +40,12 @@
 - [x] Testar fluxo completo de ponta a ponta
 - [x] Verificar integração com APIs
 - [x] Validar design e responsividade
-- [ ] Criar checkpoint final
-- [ ] Entregar projeto ao usuário
+- [x] Criar checkpoint final
+- [x] Entregar projeto ao usuário
+
+## Melhorias Solicitadas
+
+- [x] Transformar pergunta do nome da mãe em múltipla escolha
+- [x] Gerar opções aleatórias de nomes femininos
+- [x] Incluir opção "Nenhum dos nomes citados"
+- [x] Validar se usuário selecionou o nome correto ou "Nenhum dos nomes citados" quando aplicável

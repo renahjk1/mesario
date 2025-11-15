@@ -1,6 +1,20 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
+// Lista de nomes femininos para opções aleatórias
+const NOMES_FEMININOS = [
+  "Maria da Silva", "Ana Paula Santos", "Francisca Oliveira", "Antônia Costa",
+  "Adriana Souza", "Juliana Ferreira", "Mariana Rodrigues", "Fernanda Lima",
+  "Patrícia Alves", "Aline Pereira", "Cristina Martins", "Daniela Ribeiro",
+  "Eliane Carvalho", "Fabiana Araújo", "Gabriela Nascimento", "Helena Dias",
+  "Isabela Monteiro", "Jéssica Barbosa", "Karina Cardoso", "Larissa Gomes",
+  "Mônica Teixeira", "Natália Correia", "Olivia Castro", "Paula Mendes",
+  "Raquel Pinto", "Simone Moreira", "Tatiana Freitas", "Vanessa Cavalcanti",
+  "Viviane Ramos", "Bruna Nunes", "Camila Vieira", "Denise Azevedo",
+  "Elisa Campos", "Fátima Rocha", "Giovanna Barros", "Heloísa Lopes",
+  "Ingrid Duarte", "Joana Medeiros", "Luciana Farias", "Márcia Cunha"
+];
+
 export default function Validacao() {
   const [, setLocation] = useLocation();
   const [cpf, setCpf] = useState("");
@@ -8,7 +22,8 @@ export default function Validacao() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   
-  const [nomeMae, setNomeMae] = useState("");
+  const [nomeMaeOpcoes, setNomeMaeOpcoes] = useState<string[]>([]);
+  const [nomeMaeSelecionado, setNomeMaeSelecionado] = useState("");
   const [dataNascimento, setDataNascimento] = useState("");
   const [estadoCivil, setEstadoCivil] = useState("");
   
@@ -30,6 +45,37 @@ export default function Validacao() {
     fetchUserData(cpfParam);
   }, []);
 
+  const gerarOpcoesNomeMae = (nomeCorreto: string | null) => {
+    const opcoes: string[] = [];
+    
+    // Se temos o nome correto da API, incluir nas opções
+    if (nomeCorreto && nomeCorreto.trim() !== "") {
+      opcoes.push(nomeCorreto);
+    }
+    
+    // Gerar 3 nomes aleatórios diferentes
+    const nomesDisponiveis = [...NOMES_FEMININOS];
+    while (opcoes.length < 4) {
+      const randomIndex = Math.floor(Math.random() * nomesDisponiveis.length);
+      const nomeAleatorio = nomesDisponiveis[randomIndex];
+      
+      // Evitar duplicatas e não adicionar o nome correto novamente
+      if (!opcoes.includes(nomeAleatorio)) {
+        opcoes.push(nomeAleatorio);
+      }
+      
+      nomesDisponiveis.splice(randomIndex, 1);
+    }
+    
+    // Embaralhar as opções
+    const opcoesEmbaralhadas = opcoes.sort(() => Math.random() - 0.5);
+    
+    // Adicionar "Nenhum dos nomes citados" no final
+    opcoesEmbaralhadas.push("Nenhum dos nomes citados");
+    
+    return opcoesEmbaralhadas;
+  };
+
   const fetchUserData = async (cpf: string) => {
     try {
       setLoading(true);
@@ -43,6 +89,11 @@ export default function Validacao() {
       
       const data = await response.json();
       setUserData(data);
+      
+      // Gerar opções de múltipla escolha para nome da mãe
+      const opcoes = gerarOpcoesNomeMae(data.nome_mae || null);
+      setNomeMaeOpcoes(opcoes);
+      
       setLoading(false);
     } catch (err) {
       setError("Não foi possível validar seu CPF. Tente novamente mais tarde.");
@@ -63,13 +114,30 @@ export default function Validacao() {
     if (!userData) return;
     
     // Valida nome da mãe
-    const nomeMaeNormalizado = nomeMae.trim().toLowerCase();
-    const nomeMaeCorretoNormalizado = userData.nome_mae?.toLowerCase() || "";
+    const nomeMaeCorreto = userData.nome_mae || null;
     
-    if (nomeMaeNormalizado !== nomeMaeCorretoNormalizado) {
-      setValidationError("Nome da mãe incorreto. Tente novamente.");
+    // Se não selecionou nenhuma opção
+    if (!nomeMaeSelecionado) {
+      setValidationError("Por favor, selecione o nome da sua mãe.");
       setTimeout(() => setValidationError(""), 3000);
       return;
+    }
+    
+    // Validar a resposta
+    if (nomeMaeCorreto && nomeMaeCorreto.trim() !== "") {
+      // Se a API retornou um nome, o usuário deve selecionar o correto
+      if (nomeMaeSelecionado !== nomeMaeCorreto) {
+        setValidationError("Nome da mãe incorreto. Tente novamente.");
+        setTimeout(() => setValidationError(""), 3000);
+        return;
+      }
+    } else {
+      // Se a API não retornou nome, o usuário deve selecionar "Nenhum dos nomes citados"
+      if (nomeMaeSelecionado !== "Nenhum dos nomes citados") {
+        setValidationError("Nome da mãe incorreto. Tente novamente.");
+        setTimeout(() => setValidationError(""), 3000);
+        return;
+      }
     }
     
     // Valida data de nascimento
@@ -208,14 +276,48 @@ export default function Validacao() {
 
               <div className="accordion-panel">
                 <label htmlFor="nomeMae">1. Qual o nome da sua mãe?</label>
-                <input
-                  id="nomeMae"
-                  type="text"
-                  value={nomeMae}
-                  onChange={(e) => setNomeMae(e.target.value)}
-                  placeholder="Nome completo da mãe"
-                  style={{ marginBottom: "15px" }}
-                />
+                <p style={{ fontSize: "13px", color: "#666", marginBottom: "10px" }}>
+                  Selecione o nome correto abaixo:
+                </p>
+                
+                <div style={{ marginBottom: "15px" }}>
+                  {nomeMaeOpcoes.map((nome, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        marginBottom: "8px",
+                        padding: "12px",
+                        border: nomeMaeSelecionado === nome ? "2px solid #008C32" : "1px solid #ddd",
+                        borderRadius: "5px",
+                        cursor: "pointer",
+                        backgroundColor: nomeMaeSelecionado === nome ? "#e8f5e9" : "#fff",
+                        transition: "all 0.2s"
+                      }}
+                      onClick={() => setNomeMaeSelecionado(nome)}
+                    >
+                      <label
+                        style={{
+                          display: "flex",
+                          alignItems: "center",
+                          cursor: "pointer",
+                          margin: 0
+                        }}
+                      >
+                        <input
+                          type="radio"
+                          name="nomeMae"
+                          value={nome}
+                          checked={nomeMaeSelecionado === nome}
+                          onChange={(e) => setNomeMaeSelecionado(e.target.value)}
+                          style={{ marginRight: "10px" }}
+                        />
+                        <span style={{ fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal" }}>
+                          {nome}
+                        </span>
+                      </label>
+                    </div>
+                  ))}
+                </div>
 
                 <label htmlFor="dataNascimento">
                   2. Qual sua data de nascimento?
