@@ -87,11 +87,11 @@ export default function Chat() {
             <div
               id="typebot-container"
               style={{
-                backgroundColor: "#f5f5f5",
-                padding: "10px",
-                borderRadius: "8px",
+                width: "100%",
                 minHeight: "600px",
-                border: "1px solid #ddd",
+                height: "600px",
+                display: "block",
+                position: "relative",
               }}
             >
               {/* O Typebot será injetado aqui */}
@@ -101,6 +101,21 @@ export default function Chat() {
       </div>
 
       <footer></footer>
+      
+      <style>
+        {`
+          typebot-standard {
+            display: block !important;
+            width: 100% !important;
+            height: 600px !important;
+            min-height: 600px !important;
+          }
+          
+          typebot-standard > * {
+            display: block !important;
+          }
+        `}
+      </style>
     </>
   );
 }

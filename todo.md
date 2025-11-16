@@ -130,3 +130,9 @@
 - [x] Corrigir redirecionamento da página validacao-cep
 - [x] Deve ir para /vagas após validar CEP, não para tela inicial
 - [x] Passar CPF através de todas as páginas via URL
+
+## Correção Visual Chat Typebot
+
+- [x] Corrigir problema visual do chat (áudios carregam mas chat não aparece)
+- [x] Ajustar CSS para garantir visibilidade do elemento typebot-standard
+- [x] Testar se chat aparece corretamente na tela
