@@ -118,3 +118,9 @@
 
 - [x] Corrigir carregamento do chat Typebot
 - [x] Verificar integração do script
+
+## Correções Chat
+
+- [x] Simplificar texto do chat (manter apenas primeira frase e importante)
+- [x] Corrigir integração do Typebot (chat não está aparecendo)
+- [x] Testar se o Typebot carrega corretamente
