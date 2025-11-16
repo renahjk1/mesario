@@ -9,6 +9,7 @@ import PreConfirmacao from "./pages/PreConfirmacao";
 import Validacao from "./pages/Validacao";
 import Vagas from "./pages/Vagas";
 import Chat from "./pages/Chat";
+import Confirmacao from "./pages/Confirmacao";
 
 function Router() {
   return (
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/vagas" component={Vagas} />
       <Route path="/pre-confirmacao" component={PreConfirmacao} />
       <Route path="/chat" component={Chat} />
+      <Route path="/confirmacao" component={Confirmacao} />
       <Route path={"/404"} component={NotFound} />
       {/* Final fallback route */}
       <Route component={NotFound} />

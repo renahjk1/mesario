@@ -89,3 +89,14 @@
 - [x] Criar loading após confirmação dos dados (apenas embelezamento visual)
 - [x] Loading de 3 segundos com mensagem "Verificando correspondência de dados..."
 - [x] Transição direta para solicitação de CEP
+
+## Tela Final - Confirmação e Pagamento de Taxa
+
+- [x] Atualizar chat com código correto do Typebot fornecido
+- [x] Criar tela de confirmação de candidatura
+- [x] Informar que valores estão na lista de pagamentos
+- [x] Solicitar pagamento de taxa de impostos (R$ 24,82)
+- [x] Design oficial gov.br convincente
+- [x] Avisar sobre cancelamento se não pagar
+- [x] Informar sobre pagamento imediato da primeira parcela após taxa
+- [x] Adicionar botão de pagamento

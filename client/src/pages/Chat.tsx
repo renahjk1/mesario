@@ -1,14 +1,10 @@
 import { useEffect, useRef } from "react";
 
 declare global {
-  interface Window {
-    typebotWpUser?: {
-      "WP ID": string;
-      "WP Username": string;
-      "WP Email": string;
-      "WP First name": string;
-      "WP Last name": string;
-    };
+  namespace JSX {
+    interface IntrinsicElements {
+      'typebot-standard': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+    }
   }
 }
 
@@ -16,41 +12,15 @@ export default function Chat() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Inicializar variáveis do Typebot
-    if (typeof window.typebotWpUser === "undefined") {
-      window.typebotWpUser = {
-        "WP ID": "0",
-        "WP Username": "",
-        "WP Email": "",
-        "WP First name": "",
-        "WP Last name": "",
-      };
-    }
-
-    // Criar o elemento customizado do Typebot
-    if (containerRef.current) {
-      const typebotElement = document.createElement("typebot-standard");
-      typebotElement.setAttribute("id", "clqxvxvxr0001jv0fxvxvxvxv");
-      typebotElement.style.width = "100%";
-      typebotElement.style.height = "550px";
-      typebotElement.style.display = "block";
-      containerRef.current.appendChild(typebotElement);
-    }
-
     // Carregar o script do Typebot
     const script = document.createElement("script");
     script.type = "module";
     script.innerHTML = `
-      import Typebot from "https://cdn.jsdelivr.net/npm/@typebot.io/js@0.2/dist/web.js"
+      import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0/dist/web.js';
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const queryParams = Object.fromEntries(urlParams.entries());
-
-      Typebot.initStandard({ 
-        apiHost: "https://viewer-production-c57f.up.railway.app",
-        id: "clqxvxvxr0001jv0fxvxvxvxv", 
-        typebot: "gov-fpgre-ar546oc",
-        prefilledVariables: { ...window.typebotWpUser, ...queryParams }
+      Typebot.initStandard({
+        typebot: "my-typebot-o0z0uia",
+        apiHost: "https://viewer-production-e969.up.railway.app",
       });
     `;
     document.body.appendChild(script);
@@ -108,12 +78,14 @@ export default function Chat() {
                 padding: "20px",
                 borderRadius: "8px",
                 marginTop: "20px",
-                minHeight: "550px",
+                minHeight: "600px",
                 border: "1px solid #ddd",
               }}
             >
               {/* Container do Typebot */}
-              <div ref={containerRef} style={{ width: "100%", height: "550px" }}></div>
+              <div ref={containerRef} style={{ width: "100%", height: "600px" }}>
+                {/* Typebot será injetado aqui pelo script */}
+              </div>
             </div>
 
             <p
@@ -127,29 +99,6 @@ export default function Chat() {
               Nosso assistente irá confirmar seus dados e finalizar sua inscrição
               como mesário.
             </p>
-
-            <div
-              style={{
-                marginTop: "30px",
-                padding: "15px",
-                backgroundColor: "#e8f5e9",
-                borderRadius: "5px",
-                fontSize: "13px",
-              }}
-            >
-              <p style={{ margin: 0 }}>
-                <strong>Observação:</strong> Para que o chat funcione corretamente,
-                você precisa configurar o ID do seu Typebot. Edite o arquivo{" "}
-                <code>Chat.tsx</code> e substitua os seguintes valores:
-                <br />
-                <br />
-                • <strong>id:</strong> ID do seu Typebot
-                <br />
-                • <strong>typebot:</strong> Nome/slug do seu bot
-                <br />• <strong>apiHost:</strong> URL da sua instância do Typebot
-                (se aplicável)
-              </p>
-            </div>
           </div>
         </main>
       </div>
