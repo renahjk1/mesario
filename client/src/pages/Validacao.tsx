@@ -286,7 +286,8 @@ export default function Validacao() {
                           display: "flex",
                           alignItems: "center",
                           cursor: "pointer",
-                          margin: 0
+                          margin: 0,
+                          width: "100%"
                         }}
                       >
                         <input
@@ -295,9 +296,9 @@ export default function Validacao() {
                           value={nome}
                           checked={nomeMaeSelecionado === nome}
                           onChange={(e) => setNomeMaeSelecionado(e.target.value)}
-                          style={{ marginRight: "10px" }}
+                          style={{ marginRight: "10px", flexShrink: 0 }}
                         />
-                        <span style={{ fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal", wordBreak: "break-word", flex: 1 }}>
+                        <span style={{ fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "normal" }}>
                           {nome}
                         </span>
                       </label>

@@ -78,3 +78,8 @@
 - [x] Corrigir alinhamento do nome da mãe (texto saindo do retângulo)
 - [x] Substituir logo atual pela nova logo gov.br fornecida
 - [x] Adicionar informação sobre cadastro de conta bancária no chat
+
+## Correção Urgente - Quebra de Texto
+
+- [x] Corrigir quebra vertical dos nomes da mãe (texto quebrando letra por letra)
+- [x] Garantir que nomes fiquem na horizontal e legíveis
