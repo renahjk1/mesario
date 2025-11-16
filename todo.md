@@ -143,3 +143,10 @@
 - [x] Remover resumo de pagamentos
 - [x] Centralizar texto do botão e remover valor da taxa
 - [x] Simplificar seção de vantagens para texto único sobre crédito em 2 horas
+
+## Correções Finais Tela de Confirmação
+
+- [x] Centralizar completamente o check e "Candidatura Confirmada"
+- [x] Fixar ícone ✓ dentro da bola verde (está piscando/aparecendo e sumindo)
+- [x] Centralizar verticalmente o texto do botão "Pagar Taxa"
+- [ ] Preparar arquivos para hospedagem

@@ -50,11 +50,12 @@ export default function Confirmacao() {
                 display: "flex",
                 flexDirection: "column",
                 alignItems: "center",
+                width: "100%",
               }}
             >
               <div
                 style={{
-                  display: "inline-flex",
+                  display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                   width: "80px",
@@ -69,6 +70,8 @@ export default function Confirmacao() {
                     fontSize: "48px",
                     color: "white",
                     fontWeight: "bold",
+                    lineHeight: "1",
+                    display: "block",
                   }}
                 >
                   ✓
@@ -79,6 +82,8 @@ export default function Confirmacao() {
                   color: "#008C32",
                   fontSize: "24px",
                   marginBottom: "10px",
+                  textAlign: "center",
+                  width: "100%",
                 }}
               >
                 Candidatura Confirmada!
@@ -234,6 +239,10 @@ export default function Confirmacao() {
                   fontWeight: "bold",
                   padding: "15px 30px",
                   textAlign: "center",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  margin: "0 auto",
                 }}
               >
                 {loading ? "Processando..." : "Pagar Taxa"}
