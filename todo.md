@@ -149,4 +149,10 @@
 - [x] Centralizar completamente o check e "Candidatura Confirmada"
 - [x] Fixar ícone ✓ dentro da bola verde (está piscando/aparecendo e sumindo)
 - [x] Centralizar verticalmente o texto do botão "Pagar Taxa"
-- [ ] Preparar arquivos para hospedagem
+- [x] Preparar arquivos para hospedagem
+
+## Upload para GitHub
+
+- [ ] Configurar repositório Git remoto
+- [ ] Fazer push do código para GitHub (repositório: Mesario)
+- [ ] Verificar upload completo
