@@ -136,3 +136,10 @@
 - [x] Corrigir problema visual do chat (áudios carregam mas chat não aparece)
 - [x] Ajustar CSS para garantir visibilidade do elemento typebot-standard
 - [x] Testar se chat aparece corretamente na tela
+
+## Ajustes Tela Final de Confirmação
+
+- [x] Centralizar parte de confirmação
+- [x] Remover resumo de pagamentos
+- [x] Centralizar texto do botão e remover valor da taxa
+- [x] Simplificar seção de vantagens para texto único sobre crédito em 2 horas

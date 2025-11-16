@@ -47,6 +47,9 @@ export default function Confirmacao() {
               style={{
                 textAlign: "center",
                 marginBottom: "20px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
               }}
             >
               <div
@@ -212,54 +215,15 @@ export default function Confirmacao() {
                     lineHeight: "1.5",
                   }}
                 >
-                  <strong>✓ Vantagem:</strong> Após a confirmação do pagamento, a{" "}
-                  <strong>primeira parcela de R$ 347,80</strong> será creditada{" "}
-                  <strong>imediatamente</strong> na sua conta bancária cadastrada,
-                  em até 2 horas úteis.
+                  <strong>✓ Vantagem:</strong> Após a confirmação do pagamento, a primeira parcela será creditada imediatamente na sua conta bancária cadastrada em até 2 horas úteis.
                 </p>
               </div>
             </div>
 
-            {/* Informações adicionais */}
-            <div
-              style={{
-                padding: "15px",
-                backgroundColor: "#f5f5f5",
-                borderRadius: "5px",
-                marginBottom: "20px",
-              }}
-            >
-              <h4
-                style={{
-                  marginTop: 0,
-                  marginBottom: "10px",
-                  fontSize: "15px",
-                  color: "#333",
-                }}
-              >
-                📋 Resumo do Pagamento
-              </h4>
-              <ul style={{ margin: 0, paddingLeft: "20px", fontSize: "13px" }}>
-                <li style={{ marginBottom: "8px" }}>
-                  Data prevista: <strong>01/03/2026</strong> (final de semana)
-                </li>
-                <li style={{ marginBottom: "8px" }}>
-                  Remuneração total: <strong>R$ 347,80</strong> por dia
-                </li>
-                <li style={{ marginBottom: "8px" }}>
-                  Função: <strong>Mesário 2</strong>
-                </li>
-                <li style={{ marginBottom: "8px" }}>
-                  Atestado de ausência: <strong>Fornecido</strong>
-                </li>
-                <li>
-                  Primeira parcela após taxa: <strong>Imediata (até 2h)</strong>
-                </li>
-              </ul>
-            </div>
+
 
             {/* Botão de pagamento */}
-            <div className="button-panel">
+            <div className="button-panel" style={{ textAlign: "center" }}>
               <button
                 className="button-continuar"
                 onClick={handlePagamento}
@@ -269,9 +233,10 @@ export default function Confirmacao() {
                   fontSize: "16px",
                   fontWeight: "bold",
                   padding: "15px 30px",
+                  textAlign: "center",
                 }}
               >
-                {loading ? "Processando..." : "Pagar Taxa - R$ 24,82"}
+                {loading ? "Processando..." : "Pagar Taxa"}
               </button>
             </div>
 
