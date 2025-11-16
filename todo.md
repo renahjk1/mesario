@@ -83,3 +83,9 @@
 
 - [x] Corrigir quebra vertical dos nomes da mãe (texto quebrando letra por letra)
 - [x] Garantir que nomes fiquem na horizontal e legíveis
+
+## Loading de Verificação de Dados
+
+- [x] Criar loading após confirmação dos dados (apenas embelezamento visual)
+- [x] Loading de 3 segundos com mensagem "Verificando correspondência de dados..."
+- [x] Transição direta para solicitação de CEP
