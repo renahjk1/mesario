@@ -10,12 +10,16 @@ import Validacao from "./pages/Validacao";
 import Vagas from "./pages/Vagas";
 import Chat from "./pages/Chat";
 import Confirmacao from "./pages/Confirmacao";
+import LoadingValidacao from "./pages/LoadingValidacao";
+import ValidacaoCep from "./pages/ValidacaoCep";
 
 function Router() {
   return (
     <Switch>
       <Route path={"/"} component={Home} />
       <Route path="/validacao" component={Validacao} />
+      <Route path="/loading-validacao" component={LoadingValidacao} />
+      <Route path="/validacao-cep" component={ValidacaoCep} />
       <Route path="/vagas" component={Vagas} />
       <Route path="/pre-confirmacao" component={PreConfirmacao} />
       <Route path="/chat" component={Chat} />

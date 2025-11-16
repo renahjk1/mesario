@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 
 declare global {
   namespace JSX {
@@ -9,10 +9,8 @@ declare global {
 }
 
 export default function Chat() {
-  const containerRef = useRef<HTMLDivElement>(null);
-
   useEffect(() => {
-    // Carregar o script do Typebot
+    // Criar script do Typebot
     const script = document.createElement("script");
     script.type = "module";
     script.innerHTML = `
@@ -26,10 +24,8 @@ export default function Chat() {
     document.body.appendChild(script);
 
     return () => {
-      // Cleanup
-      if (script.parentNode) {
-        script.parentNode.removeChild(script);
-      }
+      // Cleanup: remover script ao desmontar
+      document.body.removeChild(script);
     };
   }, []);
 
@@ -67,25 +63,41 @@ export default function Chat() {
         <main id="main-signin">
           <div className="card" id="login-cpf">
             <h3>Última Etapa - Confirmação via Chat</h3>
-            <p>
-              Agora vamos confirmar sua zona eleitoral e as datas disponíveis
-              através do nosso assistente virtual.
+            <p style={{ marginBottom: "20px" }}>
+              Para finalizar sua inscrição, precisamos confirmar alguns detalhes
+              importantes através do nosso assistente virtual:
+            </p>
+
+            <ul
+              style={{
+                marginBottom: "20px",
+                paddingLeft: "20px",
+                fontSize: "14px",
+                lineHeight: "1.8",
+              }}
+            >
+              <li>Confirmação de zona eleitoral</li>
+              <li>Disponibilidade de datas e horários</li>
+              <li>Cadastro de conta bancária para recebimento</li>
+              <li>Esclarecimento de dúvidas sobre a função</li>
+            </ul>
+
+            <p style={{ fontSize: "13px", color: "#666", marginBottom: "20px" }}>
+              <strong>Importante:</strong> Responda todas as perguntas do
+              assistente para concluir sua candidatura.
             </p>
 
             <div
               style={{
-                backgroundColor: "#f8f9fa",
+                backgroundColor: "#f5f5f5",
                 padding: "20px",
                 borderRadius: "8px",
-                marginTop: "20px",
                 minHeight: "600px",
                 border: "1px solid #ddd",
               }}
             >
-              {/* Container do Typebot */}
-              <div ref={containerRef} style={{ width: "100%", height: "600px" }}>
-                {/* Typebot será injetado aqui pelo script */}
-              </div>
+              {/* O Typebot será injetado aqui */}
+              <div id="typebot-container"></div>
             </div>
 
             <p
@@ -96,8 +108,8 @@ export default function Chat() {
                 textAlign: "center",
               }}
             >
-              Nosso assistente irá confirmar seus dados e finalizar sua inscrição
-              como mesário.
+              Após concluir o chat, você será direcionado para a confirmação
+              final.
             </p>
           </div>
         </main>

