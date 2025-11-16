@@ -1,13 +1,21 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "wouter";
 
 export default function LoadingValidacao() {
   const [, setLocation] = useLocation();
+  const [cpf, setCpf] = useState("");
 
   useEffect(() => {
+    // Capturar CPF da URL
+    const params = new URLSearchParams(window.location.search);
+    const cpfParam = params.get("cpf");
+    if (cpfParam) {
+      setCpf(cpfParam);
+    }
+
     // Após 3 segundos, redireciona para a página de validação com step de CEP
     const timer = setTimeout(() => {
-      setLocation("/validacao-cep");
+      setLocation(`/validacao-cep?cpf=${cpfParam || ""}`);
     }, 3000);
 
     return () => clearTimeout(timer);

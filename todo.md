@@ -124,3 +124,9 @@
 - [x] Simplificar texto do chat (manter apenas primeira frase e importante)
 - [x] Corrigir integração do Typebot (chat não está aparecendo)
 - [x] Testar se o Typebot carrega corretamente
+
+## Correção Redirecionamento CEP
+
+- [x] Corrigir redirecionamento da página validacao-cep
+- [x] Deve ir para /vagas após validar CEP, não para tela inicial
+- [x] Passar CPF através de todas as páginas via URL

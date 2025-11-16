@@ -138,7 +138,7 @@ export default function Validacao() {
     }
     
     // Todos os campos preenchidos = redireciona para loading
-    setLocation("/loading-validacao");
+    setLocation(`/loading-validacao?cpf=${cpf}`);
   };
 
 

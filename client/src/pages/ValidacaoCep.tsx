@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "wouter";
 
 export default function ValidacaoCep() {
   const [, setLocation] = useLocation();
   const [cep, setCep] = useState("");
+  const [cpf, setCpf] = useState("");
   const [loadingCep, setLoadingCep] = useState(false);
   const [validationError, setValidationError] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const cpfParam = params.get("cpf");
+    if (cpfParam) {
+      setCpf(cpfParam);
+    }
+  }, []);
 
   const formatCEP = (value: string) => {
     const cleaned = value.replace(/\D/g, "");
@@ -39,7 +48,7 @@ export default function ValidacaoCep() {
 
       // Simula análise de 3 segundos
       setTimeout(() => {
-        setLocation(`/vagas?cidade=${data.localidade}&estado=${data.uf}`);
+        setLocation(`/vagas?cep=${cep.replace(/\D/g, "")}&cpf=${cpf}`);
       }, 3000);
     } catch (error) {
       setValidationError("Erro ao buscar CEP. Tente novamente.");
