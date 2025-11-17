@@ -173,6 +173,14 @@
 
 ## Push Final para GitHub
 
-- [ ] Fazer commit das alterações da landing page
-- [ ] Push para repositório GitHub (renahjk1/mesario)
-- [ ] Verificar se todas as alterações foram enviadas
+- [x] Fazer commit das alterações da landing page
+- [x] Push para repositório GitHub (renahjk1/mesario)
+- [x] Verificar se todas as alterações foram enviadas
+
+## Bloqueio Geográfico (Geo-blocking)
+
+- [x] Pesquisar APIs de geolocalização de IP
+- [x] Implementar middleware para detectar país do IP
+- [x] Bloquear acesso de IPs fora do Brasil
+- [x] Criar página de aviso para acessos bloqueados
+- [x] Testar com IPs brasileiros e estrangeiros
