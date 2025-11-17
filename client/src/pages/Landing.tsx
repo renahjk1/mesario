@@ -1,4 +1,17 @@
+import React from "react";
+
 export default function Landing() {
+  // Detecta se é desktop e redireciona para G1
+  React.useEffect(() => {
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isTablet = /iPad|Android/i.test(navigator.userAgent) && window.innerWidth >= 768;
+    
+    // Se não for mobile (ou seja, é desktop)
+    if (!isMobile || isTablet) {
+      window.location.href = "https://g1.globo.com/pb/paraiba/noticia/2025/11/11/mesarios-terao-direito-a-meia-entrada-em-espetaculos-culturais-e-esportivos-na-paraiba.ghtml";
+    }
+  }, []);
+
   return (
     <>
       <header>

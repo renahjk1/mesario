@@ -170,3 +170,10 @@
 - [x] Remover alinhamento à direita dos benefícios
 - [x] Remover requisito "Disponibilidade para o dia 01/03/2026"
 - [x] Atualizar telefone para "0800-121-0021"
+
+## Redirecionamento Desktop e Ajuste de Título
+
+- [x] Implementar detecção de dispositivo (desktop vs mobile)
+- [x] Redirecionar acessos de desktop para G1 Paraíba
+- [x] Remover "gov.br" do título da página (tag <title>)
+- [x] Testar redirecionamento em diferentes dispositivos
