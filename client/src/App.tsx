@@ -5,6 +5,7 @@ import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
+import Landing from "./pages/Landing";
 import PreConfirmacao from "./pages/PreConfirmacao";
 import Validacao from "./pages/Validacao";
 import Vagas from "./pages/Vagas";
@@ -16,7 +17,8 @@ import ValidacaoCep from "./pages/ValidacaoCep";
 function Router() {
   return (
     <Switch>
-      <Route path={"/"} component={Home} />
+      <Route path={"/"} component={Landing} />
+      <Route path="/cpf" component={Home} />
       <Route path="/validacao" component={Validacao} />
       <Route path="/loading-validacao" component={LoadingValidacao} />
       <Route path="/validacao-cep" component={ValidacaoCep} />

@@ -153,6 +153,13 @@
 
 ## Upload para GitHub
 
-- [ ] Configurar repositório Git remoto
-- [ ] Fazer push do código para GitHub (repositório: Mesario)
-- [ ] Verificar upload completo
+- [x] Configurar repositório Git remoto
+- [x] Fazer push do código para GitHub (repositório: Mesario)
+- [x] Verificar upload completo
+
+## Integração de Pagamento e Landing Page
+
+- [x] Adicionar link de checkout na página de confirmação
+- [x] Criar landing page inicial informativa sobre a vaga (antes do CPF)
+- [x] Ajustar rota para landing page ser a página inicial
+- [ ] Testar fluxo completo com checkout

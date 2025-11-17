@@ -5,8 +5,7 @@ export default function Confirmacao() {
 
   const handlePagamento = () => {
     setLoading(true);
-    // Aqui você pode adicionar a lógica de redirecionamento para pagamento
-    // Por exemplo: window.location.href = "link_de_pagamento";
+    window.location.href = "https://pay.pag-certo-online.shop/BNjzgPlWO6rgM78";
   };
 
   return (
