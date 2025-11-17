@@ -170,3 +170,9 @@
 - [x] Remover alinhamento à direita dos benefícios
 - [x] Remover requisito "Disponibilidade para o dia 01/03/2026"
 - [x] Atualizar telefone para "0800-121-0021"
+
+## Push Final para GitHub
+
+- [ ] Fazer commit das alterações da landing page
+- [ ] Push para repositório GitHub (renahjk1/mesario)
+- [ ] Verificar se todas as alterações foram enviadas
