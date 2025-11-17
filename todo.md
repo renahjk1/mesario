@@ -162,4 +162,11 @@
 - [x] Adicionar link de checkout na página de confirmação
 - [x] Criar landing page inicial informativa sobre a vaga (antes do CPF)
 - [x] Ajustar rota para landing page ser a página inicial
-- [ ] Testar fluxo completo com checkout
+- [x] Testar fluxo completo com checkout
+
+## Ajustes Landing Page
+
+- [x] Corrigir layout dos benefícios (texto ocupando apenas direita)
+- [x] Remover alinhamento à direita dos benefícios
+- [x] Remover requisito "Disponibilidade para o dia 01/03/2026"
+- [x] Atualizar telefone para "0800-121-0021"

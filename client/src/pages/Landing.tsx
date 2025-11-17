@@ -128,16 +128,12 @@ export default function Landing() {
               <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "10px",
                     padding: "12px",
                     backgroundColor: "#f0f8f0",
                     borderRadius: "5px",
                     border: "1px solid #c8e6c9",
                   }}
                 >
-                  <span style={{ fontSize: "20px", color: "#168821" }}>✓</span>
                   <p style={{ margin: 0, fontSize: "14px", color: "#2e7d32" }}>
                     <strong>Remuneração imediata:</strong> Primeira parcela creditada em até 2 horas úteis após confirmação
                   </p>
@@ -145,16 +141,12 @@ export default function Landing() {
 
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "10px",
                     padding: "12px",
                     backgroundColor: "#f0f8f0",
                     borderRadius: "5px",
                     border: "1px solid #c8e6c9",
                   }}
                 >
-                  <span style={{ fontSize: "20px", color: "#168821" }}>✓</span>
                   <p style={{ margin: 0, fontSize: "14px", color: "#2e7d32" }}>
                     <strong>Atestado para trabalho:</strong> Documento oficial fornecido para justificar ausência
                   </p>
@@ -162,16 +154,12 @@ export default function Landing() {
 
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "10px",
                     padding: "12px",
                     backgroundColor: "#f0f8f0",
                     borderRadius: "5px",
                     border: "1px solid #c8e6c9",
                   }}
                 >
-                  <span style={{ fontSize: "20px", color: "#168821" }}>✓</span>
                   <p style={{ margin: 0, fontSize: "14px", color: "#2e7d32" }}>
                     <strong>Apenas 1 dia:</strong> Trabalho em final de semana, sem comprometer sua rotina
                   </p>
@@ -179,16 +167,12 @@ export default function Landing() {
 
                 <div
                   style={{
-                    display: "flex",
-                    alignItems: "flex-start",
-                    gap: "10px",
                     padding: "12px",
                     backgroundColor: "#f0f8f0",
                     borderRadius: "5px",
                     border: "1px solid #c8e6c9",
                   }}
                 >
-                  <span style={{ fontSize: "20px", color: "#168821" }}>✓</span>
                   <p style={{ margin: 0, fontSize: "14px", color: "#2e7d32" }}>
                     <strong>Contribuição cidadã:</strong> Participe ativamente do processo democrático brasileiro
                   </p>
@@ -250,11 +234,8 @@ export default function Landing() {
                 <li style={{ marginBottom: "8px", fontSize: "14px", color: "#333" }}>
                   Estar em dia com a Justiça Eleitoral
                 </li>
-                <li style={{ marginBottom: "8px", fontSize: "14px", color: "#333" }}>
-                  Possuir CPF ativo
-                </li>
                 <li style={{ marginBottom: "0", fontSize: "14px", color: "#333" }}>
-                  Disponibilidade para o dia 01/03/2026
+                  Possuir CPF ativo
                 </li>
               </ul>
             </div>
@@ -332,7 +313,7 @@ export default function Landing() {
                 <br />
                 Processo de recrutamento conforme Resolução TSE nº 23.659/2021
                 <br />
-                Dúvidas: 0800-xxx-xxxx | atendimento@tre.gov.br
+                Dúvidas: 0800-121-0021 | atendimento@tre.gov.br
               </p>
             </div>
           </div>
